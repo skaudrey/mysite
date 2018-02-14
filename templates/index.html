@@ -1,0 +1,38 @@
+{# All the html files are managed in this folder #}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+<body>
+    <h1 style="background-color: antiquewhite;color: black;">hello world!</h1>
+
+{#the static url is the url you set in settings.py, not the folder name of css#}
+
+{#get post form, you need to modify the index function in views.py and the settings file#}
+<h1 style="color: #00F7DE">用户输入</h1>
+<form action="/index/" method="post">
+    <input type="text" name="username"/>
+    <input type = "password" name="password"/>
+    <input type = "submit" value = "提交">
+</form>
+    <h1 style="color: #5FB878">用户展示</h1>
+    <table border="1">
+        <thead>
+            <th>用户名</th>
+            <th>密码</th>
+        </thead>
+        <tbody>
+            {% for line in data %}
+                <tr>
+                    <td>{{ line.user }}</td>
+                    <td>{{ line.pwd }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+<script src="/static/layui/layui.js"></script>
+</body>
+</html>
